@@ -5,5 +5,16 @@
       "config/**/*.js",
       "node_modules/**/*.ts"
     ]
+  },
+  "rules": {
+    "interface-name" : [true, "never-prefix"],
+    "max-line-length": [true, {
+      "limit": 80,
+      "ignore-pattern": "//"
+    }],
+    "ordered-imports": false,
+    "sorted-imports": true,
+    "object-literal-sort-keys": false,
+    "member-access": false
   }
 }
