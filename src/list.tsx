@@ -58,11 +58,11 @@ export const ListItem = (props:ListItemProps) => {
     <div className="list-item-content">
       <div className="wide-font padding-bottom-10">{ title || '-' }</div>
       <div className="padding-bottom-10">
-        Release Date: { release_date || '----/--/--'}
+        Release Date: <span>{ release_date || '----/--/--'}</span>
       </div>
-      <div>Vote Average: { vote_average }/10</div>
+      <div>Vote Average: <span>{ vote_average } / 10</span></div>
     </div>
-    <div className="padding-right-10">
+    <div className="padding-right-20">
       <i className="fa fa-info-circle"/> MORE
     </div>
   </div>;

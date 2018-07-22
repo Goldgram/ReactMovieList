@@ -50,14 +50,24 @@ a {
 .content-container {
   margin: 0 auto;
 	max-width: 1000px;
-	padding: 0 12px;
+	padding: 0 20px;
 }
 
 .text-center { text-align: center; }
 
+.wide-font {
+	font-family: "helvetica75";
+	font-size: 22px;
+}
+
 .flex-between {
   display: flex;
 	align-items: center;
+	justify-content: space-between;
+}
+.flex-start {
+  display: flex;
+	align-items: flex-start;
 	justify-content: space-between;
 }
 
@@ -65,9 +75,14 @@ a {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+.padding-top-bottom-20 {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
 .padding-bottom-10 { padding-bottom: 10px; }
 .padding-right-10 { padding-right: 10px; }
-.padding-right-10 { padding-right: 10px; }
+.padding-right-20 { padding-right: 20px; }
+.padding-left-20 { padding-left: 20px; }
 
 .no-select-click {
 	cursor: pointer;
@@ -85,9 +100,10 @@ a {
 
 .visibility-hidden { visibility: hidden; }
 
-.wide-font {
-	font-family: "helvetica75";
-	font-size: 22px;
+.clearBothAfter:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* header */
@@ -95,7 +111,6 @@ a {
 .logo {
   text-align: center;
 	font-size: 32px;
-	padding: 10px 0;
 }
 
 /* options */
@@ -133,3 +148,12 @@ a {
 }
 
 /* item */
+
+.item-content div {
+  margin-bottom: 20px;
+}
+.company-logo {
+	float: left;
+	padding: 5px;
+	margin: 4px 10px 10px 0;
+}
