@@ -23,8 +23,16 @@ export interface MovieMatch {
 // list
 
 export type Layout = 'list' | 'images' | 'titles';
+export const LAYOUTS:Layout[] = ['list', 'images', 'titles'];
 
 export type Sort = 'popularity.desc' | 'popularity.asc'
+export const SORTS:Sort[] = ['popularity.desc', 'popularity.asc'];
+
+export interface OptionsType {
+  page: number | undefined
+  layout: Layout | undefined
+  sort: Sort | undefined
+}
 
 interface MovieListResult extends MovieBase {
   genre_ids: number[]

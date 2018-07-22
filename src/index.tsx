@@ -8,17 +8,17 @@ import { ListController } from './list';
 import registerServiceWorker from './registerServiceWorker';
 
 export const Routes = () => {
-  return <React.Fragment>
-    <Header />
-    <Route path="/" exact={true} component={ListController} />
-    <Route path="/:movieId" component={ItemController} />
-  </React.Fragment>;
+  return <BrowserRouter>
+    <React.Fragment>
+      <Header />
+      <Route path="/" exact={true} component={ListController} />
+      <Route path="/:movieId" component={ItemController} />
+    </React.Fragment>
+  </BrowserRouter>;
 };
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes/>
-  </BrowserRouter>,
+  <Routes/>,
   document.getElementById('root') as HTMLElement
 );
 
