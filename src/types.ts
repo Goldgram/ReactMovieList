@@ -16,11 +16,15 @@ interface MovieBase {
   vote_count:        number
 }
 
+export interface MovieMatch {
+  movieId: string
+}
+
 // list
 
 export type Layout = 'list' | 'images' | 'titles';
 
-export type SortType = 'popularity.desc' | 'popularity.asc'
+export type Sort = 'popularity.desc' | 'popularity.asc'
 
 interface MovieListResult extends MovieBase {
   genre_ids: number[]
@@ -31,10 +35,6 @@ export interface MovieListData {
   results:       MovieListResult[]
   total_pages:   number
   total_results: number
-}
-
-export interface MovieMatch {
-  movieId: string
 }
 
 // item

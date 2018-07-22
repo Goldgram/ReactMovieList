@@ -1,10 +1,10 @@
-import { SortType } from "./types";
+import { Sort } from "./types";
 
 const APIKEY = '' // API key not saved for obvious reasons
 
 export const getListUrl = (
   page:number = 1,
-  sortBy:SortType = 'popularity.desc'
+  sortBy:Sort = 'popularity.desc'
 ) =>
   `https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}`
   + `&sort_by=${sortBy}`
