@@ -2,18 +2,6 @@
   "name": "movie-app",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@types/react-router-dom": "^4.3.0",
-    "ajv": "^6.5.2",
-    "ajv-keywords": "^3.2.0",
-    "core-js": "^2.5.7",
-    "font-awesome": "^4.7.0",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1",
-    "react-scripts-ts": "2.16.0",
-    "whatwg-fetch": "^2.0.4"
-  },
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
@@ -25,6 +13,14 @@
     "@types/node": "^10.5.2",
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
-    "typescript": "^2.9.2"
+    "@types/react-router-dom": "^4.3.0",
+    "core-js": "^2.5.7",
+    "font-awesome": "^4.7.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts-ts": "2.16.0",
+    "typescript": "^2.9.2",
+    "whatwg-fetch": "^2.0.4"
   }
 }

@@ -6,7 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { Header } from './header';
 import { ItemController } from './item';
 import { ListController } from './list';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 export const Routes = () => {
   return <BrowserRouter>
@@ -22,5 +22,3 @@ ReactDOM.render(
   <Routes/>,
   document.getElementById('root') as HTMLElement
 );
-
-registerServiceWorker();

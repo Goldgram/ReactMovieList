@@ -30,7 +30,10 @@ body {
 	font-family: "helvetica45", Helvetica, sans-serif;
 }
 
-a { text-decoration: none; }
+a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
 
 .primary-bg { background-color: #323232; }
 .seondary-bg { background-color: #222222; }
@@ -61,7 +64,7 @@ a { text-decoration: none; }
 	padding-bottom: 12px;
 }
 
-/* .no-select-click {
+.no-select-click {
 	cursor: pointer;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -69,32 +72,44 @@ a { text-decoration: none; }
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-} */
+}
 
 .loading-icon {
 	padding-top: 50px;
 }
 
+.visibility-hidden {
+	visibility: hidden;
+}
+
 /* header */
 .logo {
   text-align: center;
-	font-size: 30px;
+	font-size: 32px;
 	padding: 10px 0;
 }
 .logo i {
 	padding-right: 10px;
 }
 
+/* options */
+.page-text {
+	padding: 0 20px;
+}
+.layout-icon {
+	font-size: 22px;
+	padding: 0 8px;
+}
+.layout-icon .fa-file-image-o {
+	font-size: 20px;
+}
+
+
 /* list */
 
 .layout-list {
 	background-color: green;
 }
-/* .layout-posters {
-	float: left;
-	width: 200px;
-	padding: 5px;
-} */
 .layout-posters {
 	float: left;
 	width: 180px;

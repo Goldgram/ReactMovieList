@@ -13,14 +13,19 @@ export const ItemController = (props:RouteComponentProps<MovieMatch>) => {
   />
 }
 
-export const getItemView = (movieId:string) => (data:MovieData) => {
+export const getItemView = (movieId:string = '') => (data:MovieData) => {
   const { title, release_date, vote_average = '-', overview, poster_path,
     production_companies = []
   } = data;
 
   return <div>
-    <div> {/* ribbon class */}
-      <Link to="/">Back</Link> { movieId || '-'}
+    <div className="primary-bg">
+      <div className="content-container flex padding-top-bottom-10">
+        <Link to="/">
+          <i className="fa fa-chevron-left"/> BACK
+        </Link>
+        <div>{ movieId }</div>
+      </div>
     </div>
 
     <div>Title: { title || 'No title found' }</div>
