@@ -1,9 +1,107 @@
-/* body {
+/* fonts */
+@font-face {
+	font-family:"helvetica45";
+	src: url("./fonts/helveticaneueltpro_lt-webfont.eot");
+	src: url("./fonts/helveticaneueltpro_lt-webfont.eot?#iefix") format("embedded-opentype"),
+		url("./fonts/helveticaneueltpro_lt-webfont.woff") format("woff"),
+		url("./fonts/helveticaneueltpro_lt-webfont.ttf") format("truetype"),
+		url("./fonts/helveticaneueltpro_lt-webfont.svg#helvetica45") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "helvetica75";
+	src: url("./fonts/helveticaneueltpro_bd-webfont.eot");
+	src: url("./fonts/helveticaneueltpro_bd-webfont.eot?#iefix") format("embedded-opentype"),
+		url("./fonts/helveticaneueltpro_bd-webfont.woff") format("woff"),
+		url("./fonts/helveticaneueltpro_bd-webfont.ttf") format("truetype"),
+		url("./fonts/helveticaneueltpro_bd-webfont.svg#helvetica75") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* common */
+body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+	min-width: 400px;
+	background-color: #222222;
+  color: #FFFFFF;
+	font-family: "helvetica45", Helvetica, sans-serif;
+}
+
+a { text-decoration: none; }
+
+.primary-bg { background-color: #323232; }
+.seondary-bg { background-color: #222222; }
+.content-bg { background-color: #FFFFFF; }
+.highlight-bg { background-color: #1FADEA; }
+
+.primary-c { color: #323232; }
+.seondary-c { color: #222222; }
+.content-c { color: #FFFFFF; }
+.highlight-c { color: #1FADEA; }
+
+.content-container {
+  margin: 0 auto;
+	max-width: 1000px;
+	padding: 0 12px;
+}
+
+.text-center { text-align: center; }
+
+.flex {
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.padding-top-bottom-10 {
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+/* .no-select-click {
+	cursor: pointer;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 } */
 
-.selected {
-  background-color: red;
+.loading-icon {
+	padding-top: 50px;
 }
+
+/* header */
+.logo {
+  text-align: center;
+	font-size: 30px;
+	padding: 10px 0;
+}
+.logo i {
+	padding-right: 10px;
+}
+
+/* list */
+
+.layout-list {
+	background-color: green;
+}
+/* .layout-posters {
+	float: left;
+	width: 200px;
+	padding: 5px;
+} */
+.layout-posters {
+	float: left;
+	width: 180px;
+	padding: 10px;
+}
+.layout-text-only {
+	background-color: green;
+}
+
+/* item */

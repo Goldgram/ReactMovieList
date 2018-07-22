@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import './resources/index.css';
+import './../node_modules/font-awesome/css/font-awesome.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Header } from './header';
 import { ItemController } from './item';

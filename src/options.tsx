@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { Layout, LAYOUTS, Sort, SORTS, OptionsType, MovieMatch } from './types';
-import { getOptions, findSort, getLayoutIcon, getSortText
+import { getOptions, findSort, getLayoutIcon, getSortText, getLayoutText
   } from './list-functions';
 
 export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
@@ -38,31 +38,37 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
       page = 1, layout = LAYOUTS[0], sort = SORTS[0]
     } = getOptions(this.props);
 
-    return <div> {/* ribbon class */}
-      <select onChange={this.onChangeSort}>
-        { SORTS.map((s:Sort, index:number) =>
-          <option key={index} value={s} selected={s === sort}>
-            {getSortText(s)}
-          </option>
-        )}
-      </select>
+    return <div className="primary-bg">
+      <div className="content-container flex padding-top-bottom-10">
 
-      <div>
-        { page > 1 && <div onClick={this.onChangePage(page - 1)}>prev</div> }
-        <div>page: { page }</div>
-        <div onClick={this.onChangePage(page + 1)}>next</div>
+        <select onChange={this.onChangeSort}>
+          { SORTS.map((s:Sort, index:number) =>
+            <option key={index} value={s} selected={s === sort}>
+              {getSortText(s)}
+            </option>
+          )}
+        </select>
+
+        <div className="flex">
+          { page > 1 && <div onClick={this.onChangePage(page - 1)}>prev</div> }
+          <div>page: { page }</div>
+          <div onClick={this.onChangePage(page + 1)}>next</div>
+        </div>
+
+        <div className="flex">
+          { LAYOUTS.map((l:Layout, index:number) =>
+              <div
+                key={index}
+                className={l === layout? 'highlight-c' : ''}
+                onClick={this.onChangeLayout(l)}
+                title={getLayoutText(l)}
+              >
+                <i className={`fa ${getLayoutIcon(l)}`} />
+              </div>
+          )}
+        </div>
+
       </div>
-
-      { LAYOUTS.map((l:Layout, index:number) =>
-          <button
-            key={index}
-            className={l === layout? 'selected' : ''}
-            onClick={this.onChangeLayout(l)}
-          >
-            { getLayoutIcon(l) }
-          </button>
-      )}
-
     </div>
   }
 }

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import 'whatwg-fetch'
-import loadingIcon from './resources/loading-icon.gif';
 
 interface PropsTypes<T> {
   url: string
@@ -12,6 +11,18 @@ interface State<T> {
   error: boolean
   data: T | undefined
 }
+
+const LOADING = <div className="text-center loading-icon">
+  <i className="fa fa-cog fa-spin fa-3x" />
+</div>;
+
+const ERROR = <div className="padding-top-bottom-10 text-center">
+  Oops! Something went wrong! Please try again later
+</div>;
+
+const NORESULTS = <div className="padding-top-bottom-10 text-center">
+  No Results
+</div>;
 
 export class GenericViewController<T>
   extends React.Component<PropsTypes<T>, State<T>> {
@@ -53,13 +64,10 @@ export class GenericViewController<T>
     const { viewFn } = this.props;
     const { loading, error, data } = this.state;
 
-    return loading
-      ? <img src={loadingIcon} alt="loading" />
-      : error
-        ? <div>Oops! Something went wrong! Please try again later</div>
-        : data
-          ? viewFn(data)
-          : <div>No Result</div>;
+    return loading ? LOADING
+      : error ? ERROR
+        :  data ? viewFn(data)
+          : NORESULTS;
   }
 }
 

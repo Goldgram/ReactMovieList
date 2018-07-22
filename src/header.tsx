@@ -1,16 +1,10 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-// interface HeaderProps {
-//   movieId: string
-// }
-
-export class Header extends React.Component {
-  public render() {
-    // const { movieId = '' } = this.props;
-    return <div>
-      <Link to="/">Top Movies</Link>
-      {/* { movieId ? ` / ${movieId}`: ''} */}
-    </div>;
-  }
-}
+export const Header = () => <div className="content-container">
+  <Link to="/">
+    <div className="highlight-c logo">
+      <i className="fa fa-film" /> Top Movies
+    </div>
+  </Link>
+</div>;

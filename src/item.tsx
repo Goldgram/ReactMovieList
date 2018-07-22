@@ -41,7 +41,7 @@ export const getItemView = (movieId:string) => (data:MovieData) => {
       { production_companies.length
         ? production_companies.map((company, i) => {
           const { name, logo_path } = company;
-            return <div key={i}>
+            return <div key={i} className="content-bg">
               { logo_path && <img
                 src={getImageUrl(logo_path,'w200')}
                 title={name}
