@@ -39,7 +39,16 @@ export const getItemView = (movieId:string) => (data:MovieData) => {
     <div>
       Production Companies:
       { production_companies.length
-        ? production_companies.map((c, i) => <div key={i}>{c.name}</div>)
+        ? production_companies.map((company, i) => {
+          const { name, logo_path } = company;
+            return <div key={i}>
+              { logo_path && <img
+                src={getImageUrl(logo_path,'w200')}
+                title={name}
+                alt={`${name} logo`}
+              /> }
+            </div>;
+          })
         : 'No production companies found'
       }
     </div>
