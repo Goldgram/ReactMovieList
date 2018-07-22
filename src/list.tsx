@@ -3,19 +3,21 @@ import 'whatwg-fetch'
 import { Link } from 'react-router-dom';
 import { getListUrl } from './api';
 import { GenericViewController } from './generic-view-controller';
-import { MovieListData } from './types';
+import { MovieListData, Layout, SortType } from './types';
 
-type ListStyle = 'list' | 'images' | 'titles';
-const LISTSTYLES:ListStyle[] = ['list', 'images', 'titles'];
+const LAYOUTS:Layout[] = ['list', 'images', 'titles'];
+const SORTTYPES:SortType[] = ['popularity.desc', 'popularity.asc'];
 
 interface State {
   page: number
-  listStyle: ListStyle
+  layout: Layout
+  sort: SortType
 }
 
 const defaultState:State = {
   page: 1,
-  listStyle: LISTSTYLES[0]
+  layout: LAYOUTS[0],
+  sort: SORTTYPES[0]
 }
 
 export class ListController extends React.Component<{}, State> {
@@ -24,32 +26,32 @@ export class ListController extends React.Component<{}, State> {
     this.state = defaultState;
   }
 
-  getListStyleButton = (listStyle:ListStyle, index:number) =>
+  getLayoutButton = (layout:Layout, index:number) =>
     <button
       key={index}
-      className={this.state.listStyle === listStyle ? 'selected' : ''}
-      onClick={this.toggleListStyle(listStyle)}
+      className={this.state.layout === layout ? 'selected' : ''}
+      onClick={this.onChangeLayout(layout)}
     >
-      { listStyle } icon
+      { layout } icon
     </button>
 
 
-  toggleListStyle = (listStyle:ListStyle) => () => this.setState({ listStyle });
+  onChangeLayout = (layout:Layout) => () => this.setState({ layout });
 
   onChangePage = (page:number) => () => this.setState({ page });
 
   render() {
-    const { page } = this.state;
+    const { page, sort } = this.state;
 
     return <React.Fragment>
-      { LISTSTYLES.map(this.getListStyleButton) }
+      { LAYOUTS.map(this.getLayoutButton) }
 
       { page > 1 && <div onClick={this.onChangePage(page - 1)}>prev</div> }
       <div>page: { page }</div>
       <div onClick={this.onChangePage(page + 1)}>next</div>
 
       <GenericViewController<MovieListData>
-        url={getListUrl(page)}
+        url={getListUrl(page, sort)}
         viewFn={getListView}
       />
 

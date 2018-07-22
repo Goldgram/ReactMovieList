@@ -1,4 +1,5 @@
 // common
+
 interface MovieBase {
   adult:             boolean
   backdrop_path:     string
@@ -16,6 +17,11 @@ interface MovieBase {
 }
 
 // list
+
+export type Layout = 'list' | 'images' | 'titles';
+
+export type SortType = 'popularity.desc' | 'popularity.asc'
+
 interface MovieListResult extends MovieBase {
   genre_ids: number[]
 }
@@ -32,6 +38,7 @@ export interface MovieMatch {
 }
 
 // item
+
 export interface MovieData extends MovieBase {
   belongs_to_collection: Collection
   budget: number
