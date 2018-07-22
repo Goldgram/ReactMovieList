@@ -1,4 +1,4 @@
-import { Sort } from "./types";
+import { Sort, ImageWidth } from "./types";
 
 const APIKEY = '' // API key not saved for obvious reasons
 
@@ -12,3 +12,7 @@ export const getListUrl = (
 
 export const getItemUrl = (movieId:string = '') =>
   `https://api.themoviedb.org/3/movie/${movieId}?api_key=${APIKEY}`;
+
+export const getImageUrl = (imagePath:string, width:ImageWidth) =>
+  `https://image.tmdb.org/t/p/${width}${imagePath}`;
+

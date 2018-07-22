@@ -38,8 +38,7 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
       page = 1, layout = LAYOUTS[0], sort = SORTS[0]
     } = getOptions(this.props);
 
-    // addribbon class
-    return <div>
+    return <div> {/* ribbon class */}
       <select onChange={this.onChangeSort}>
         { SORTS.map((s:Sort, index:number) =>
           <option key={index} value={s} selected={s === sort}>

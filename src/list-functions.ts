@@ -30,17 +30,21 @@ export const getOptions = (
 
 export const getLayoutIcon = (layout:Layout) => {
   switch(layout) {
-    case 'images': return 'iamgeIcon';
-    case 'text': return 'textIcon';
-    case 'list':
-    default: return 'listIcon';
+    case 'list': return 'listIcon'
+    case 'posters': return 'iamgeIcon';
+    case 'textOnly': return 'textIcon';
+    default: return '';
   }
 }
 
 export const getSortText = (sort:Sort) => {
   switch(sort) {
+    case 'popularity.desc': return 'Popularity (Descending)';
     case 'popularity.asc': return 'Popularity (Ascending)'
-    case 'popularity.desc':
-    default: return 'Popularity (Descending)';
+    case 'release_date.desc': return 'Release Date (Descending)'
+    case 'release_date.asc': return 'Release Date (Ascending)'
+    case 'vote_average.desc': return 'Vote Average (Descending)'
+    case 'vote_average.asc': return 'Vote Average (Ascending)'
+    default: return '';
   }
 }

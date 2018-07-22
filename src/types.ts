@@ -20,13 +20,21 @@ export interface MovieMatch {
   movieId: string
 }
 
+export type ImageWidth = 'w200' | 'w400';
+
 // list
 
-export type Layout = 'list' | 'images' | 'text';
-export const LAYOUTS:Layout[] = ['list', 'images', 'text'];
+export type Layout = 'list' | 'posters' | 'textOnly';
+export const LAYOUTS:Layout[] = ['list', 'posters', 'textOnly'];
 
 export type Sort = 'popularity.desc' | 'popularity.asc'
-export const SORTS:Sort[] = ['popularity.desc', 'popularity.asc'];
+  | 'release_date.desc' | 'release_date.asc'
+  | 'vote_average.desc' | 'vote_average.asc';
+export const SORTS:Sort[] = [
+  'popularity.desc', 'popularity.asc'
+  , 'release_date.desc', 'release_date.asc'
+  , 'vote_average.desc', 'vote_average.asc'
+];
 
 export interface OptionsType {
   page: number | undefined
@@ -34,7 +42,7 @@ export interface OptionsType {
   sort: Sort | undefined
 }
 
-interface MovieListResult extends MovieBase {
+export interface MovieListResult extends MovieBase {
   genre_ids: number[]
 }
 
