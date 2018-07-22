@@ -3,6 +3,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { Layout, LAYOUTS, Sort, SORTS, OptionsType, MovieMatch } from './types';
 import { getOptions, findSort, getLayoutIcon, getSortText, getLayoutText
   } from './list-functions';
+import { Ribbon } from './ribbon';
 
 export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
 
@@ -38,52 +39,48 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
       page = 1, layout = LAYOUTS[0], sort = SORTS[0]
     } = getOptions(this.props);
 
-    return <div className="primary-bg">
-      <div className="content-container flex padding-top-bottom-10">
+    return <Ribbon>
+      <select onChange={this.onChangeSort}>
+        { SORTS.map((s:Sort, index:number) =>
+          <option key={index} value={s} selected={s === sort}>
+            {getSortText(s)}
+          </option>
+        )}
+      </select>
 
-        <select onChange={this.onChangeSort}>
-          { SORTS.map((s:Sort, index:number) =>
-            <option key={index} value={s} selected={s === sort}>
-              {getSortText(s)}
-            </option>
-          )}
-        </select>
-
-        <div className="flex">
-          <div
-            className={`no-select-click ${page < 2 ? 'visibility-hidden' : ''}`}
-            onClick={this.onChangePage(page - 1)}
-          >
-            <i className="fa fa-chevron-left"/> PREV
-          </div>
-          <div className="page-text">
-            PAGE: { page }
-          </div>
-          <div
-            className="no-select-click"
-            onClick={this.onChangePage(page + 1)}
-          >
-            NEXT <i className="fa fa-chevron-right"/>
-          </div>
+      <div className="flex-between">
+        <div
+          className={`no-select-click ${page < 2 ? 'visibility-hidden' : ''}`}
+          onClick={this.onChangePage(page - 1)}
+        >
+          <i className="fa fa-chevron-left"/> PREV
         </div>
-
-        <div className="flex">
-          { LAYOUTS.map((l:Layout, index:number) => {
-              const hightlight = l === layout? 'highlight-c' : ''
-              const c = `no-select-click layout-icon ${hightlight}`;
-              return <div
-                key={index}
-                className={c}
-                onClick={this.onChangeLayout(l)}
-                title={getLayoutText(l)}
-              >
-                <i className={`fa ${getLayoutIcon(l)}`} />
-              </div>
-            }
-          )}
+        <div className="page-text">
+          PAGE: { page }
         </div>
-
+        <div
+          className="no-select-click"
+          onClick={this.onChangePage(page + 1)}
+        >
+          NEXT <i className="fa fa-chevron-right"/>
+        </div>
       </div>
-    </div>
+
+      <div className="flex-between">
+        { LAYOUTS.map((l:Layout, index:number) => {
+            const hightlight = l === layout? 'highlight-c' : ''
+            const c = `no-select-click layout-icon ${hightlight}`;
+            return <div
+              key={index}
+              className={c}
+              onClick={this.onChangeLayout(l)}
+              title={getLayoutText(l)}
+            >
+              <i className={`fa ${getLayoutIcon(l)}`} />
+            </div>
+          }
+        )}
+      </div>
+    </Ribbon>
   }
 }

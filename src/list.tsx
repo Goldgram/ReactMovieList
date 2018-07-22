@@ -21,7 +21,7 @@ export const ListController = (props:RouteComponentProps<MovieMatch>) => {
 
 const getListView = (layout:Layout) => (data:MovieListData) => {
   const { results = [] } = data;
-  return <div className="content-container padding-top-bottom-10 list-view">
+  return <div className="content-container padding-top-bottom-10">
     { results.map((result, i) =>
         <Link to={`/${result.id || ''}`} key={i}>
           <ListItem item={result} layout={layout} />
@@ -50,14 +50,21 @@ export const ListItem = (props:ListItemProps) => {
     />
   }
 
-  return <div className={`layout-${layout}`}>
-    { layout === 'list' && backdrop_path && <img
+  return <div className="flex-between primary-bg layout-list">
+    { backdrop_path && <img
       src={getImageUrl(backdrop_path, 'w200')}
       alt={`${title} image`}
     /> }
-    <div>{ title || '-' }</div>
-    <div>{ release_date || '----/--/--'}</div>
-    <div>{ vote_average }/10</div>
+    <div className="list-item-content">
+      <div className="wide-font padding-bottom-10">{ title || '-' }</div>
+      <div className="padding-bottom-10">
+        Release Date: { release_date || '----/--/--'}
+      </div>
+      <div>Vote Average: { vote_average }/10</div>
+    </div>
+    <div className="padding-right-10">
+      <i className="fa fa-info-circle"/> MORE
+    </div>
   </div>;
 }
 

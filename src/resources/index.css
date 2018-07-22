@@ -55,16 +55,19 @@ a {
 
 .text-center { text-align: center; }
 
-.flex {
+.flex-between {
   display: flex;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: space-between;
 }
 
 .padding-top-bottom-10 {
-	padding-top: 12px;
-	padding-bottom: 12px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
+.padding-bottom-10 { padding-bottom: 10px; }
+.padding-right-10 { padding-right: 10px; }
+.padding-right-10 { padding-right: 10px; }
 
 .no-select-click {
 	cursor: pointer;
@@ -80,8 +83,11 @@ a {
 	padding-top: 50px;
 }
 
-.visibility-hidden {
-	visibility: hidden;
+.visibility-hidden { visibility: hidden; }
+
+.wide-font {
+	font-family: "helvetica75";
+	font-size: 22px;
 }
 
 /* header */
@@ -90,9 +96,6 @@ a {
   text-align: center;
 	font-size: 32px;
 	padding: 10px 0;
-}
-.logo i {
-	padding-right: 10px;
 }
 
 /* options */
@@ -112,15 +115,21 @@ a {
 /* list */
 
 .layout-list {
-	background-color: green;
+  margin-bottom: 20px;
 }
+.layout-list:first-child {
+  margin-top: 10px;
+}
+.list-item-content {
+	padding: 10px 20px;
+	flex-grow: 1;
+}
+
 .layout-posters {
 	float: left;
 	width: 180px;
+	height: 270px;
 	padding: 10px;
-}
-.layout-text-only {
-	background-color: green;
 }
 
 /* item */

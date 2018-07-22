@@ -32,7 +32,6 @@ export const getLayoutIcon = (layout:Layout) => {
   switch(layout) {
     case 'list': return 'fa-th-list';
     case 'posters': return 'fa-file-image-o';
-    case 'text-only': return 'fa-align-justify';
     default: return '';
   }
 }
@@ -41,7 +40,6 @@ export const getLayoutText = (layout:Layout) => {
   switch(layout) {
     case 'list': return 'List';
     case 'posters': return 'Posters';
-    case 'text-only': return 'Text Only';
     default: return '';
   }
 }

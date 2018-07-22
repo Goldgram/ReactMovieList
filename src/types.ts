@@ -24,8 +24,8 @@ export type ImageWidth = 'w200' | 'w400';
 
 // list
 
-export type Layout = 'list' | 'posters' | 'text-only';
-export const LAYOUTS:Layout[] = ['list', 'posters', 'text-only'];
+export type Layout = 'list' | 'posters';
+export const LAYOUTS:Layout[] = ['list', 'posters'];
 
 export type Sort = 'popularity.desc' | 'popularity.asc'
   | 'release_date.desc' | 'release_date.asc'
