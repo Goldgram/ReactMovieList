@@ -50,15 +50,23 @@ export class GenericViewController<T>
     if (url) {
       this.setState({ loading: true, error: false });
       fetch(url)
-        .catch(this.catchError)
+        .then(this.handleFetchError)
         .then((r:Response) => r && r.json())
-        .then((data:T) => {
-          this.setState({ loading: false, error: false, data });
-        });
+        .then((data:T) => this.setState({ loading: false, data }))
+        .catch(this.setError);
     }
   }
 
-  catchError = () => this.setState({ loading: false, error: true });
+  handleFetchError(r:Response) {
+    if (!r.ok) {
+      this.setError();
+    }
+    return r;
+  }
+
+  setError = () => {
+    this.setState({ loading: false, error: true });
+  }
 
   render() {
     const { viewFn } = this.props;
