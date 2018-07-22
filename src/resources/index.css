@@ -1,4 +1,5 @@
 /* fonts */
+
 @font-face {
 	font-family:"helvetica45";
 	src: url("./fonts/helveticaneueltpro_lt-webfont.eot");
@@ -21,6 +22,7 @@
 }
 
 /* common */
+
 body {
   margin: 0;
   padding: 0;
@@ -83,6 +85,7 @@ a {
 }
 
 /* header */
+
 .logo {
   text-align: center;
 	font-size: 32px;
@@ -93,6 +96,7 @@ a {
 }
 
 /* options */
+
 .page-text {
 	padding: 0 20px;
 }
