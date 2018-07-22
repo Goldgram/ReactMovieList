@@ -1,6 +1,6 @@
-import 'core-js/fn/array/find';
 import { RouteComponentProps } from 'react-router-dom';
-import { MovieMatch, OptionsType, LAYOUTS, SORTS, Layout, Sort } from './types';
+import { MovieMatch, OptionsType, LAYOUTS, SORTS, Layout, Sort
+  } from '../types';
 
 const splitSearchString = (search:string):{[key:string]:string} =>
   search.substring(1).split('&').reduce((acc, s) => {

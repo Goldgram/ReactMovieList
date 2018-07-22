@@ -1,18 +1,9 @@
 import * as React from 'react';
-import { RouteComponentProps, Link } from 'react-router-dom';
-import { getItemUrl, getImageUrl } from './api';
-import { GenericViewController } from './generic-view-controller';
-import { MovieData, MovieMatch, ProductionCompany } from './types';
-import { Ribbon } from './ribbon';
-
-export const ItemController = (props:RouteComponentProps<MovieMatch>) => {
-  const { movieId } = props.match.params;
-
-  return <GenericViewController<MovieData>
-    url={getItemUrl(movieId)}
-    viewFn={getItemView(movieId)}
-  />
-}
+import { Link } from 'react-router-dom';
+import { getImageUrl } from '../api';
+import { MovieData, } from '../types';
+import { Ribbon } from '../common/ribbon';
+import { Companies } from './companies';
 
 export const getItemView = (movieId:string = '') => (data:MovieData) => {
   const { title, release_date, vote_average = '-', overview, poster_path
@@ -35,7 +26,7 @@ export const getItemView = (movieId:string = '') => (data:MovieData) => {
 
       <div className="padding-left-20 item-content">
         <div className="wide-font">{ title || '-' }</div>
-        <div><b>Release Date:</b> { release_date || '----/--/--' }</div>
+        <div>Release Date: { release_date || '----/--/--' }</div>
         <div>Runtime: { runtime } min</div>
         <div>Vote Average: { vote_average } / 10</div>
         <div>Total Votes: { vote_count }</div>
@@ -49,26 +40,3 @@ export const getItemView = (movieId:string = '') => (data:MovieData) => {
     </div>
   </React.Fragment>;
 }
-
-interface CompaniesProps {
-  companies: ProductionCompany[]
-}
-
-const Companies = ({ companies = [] }:CompaniesProps) => {
-  return <div className="clearBothAfter">
-    { companies.length
-      ? companies.map((company, i) => {
-        const { name, logo_path } = company;
-          return <div key={i} className="content-bg primary-c company-logo">
-            <img
-              src={getImageUrl(logo_path,'w200')}
-              title={name}
-              alt={name}
-            />
-          </div>;
-        })
-      : '-'
-    }
-  </div>;
-}
-

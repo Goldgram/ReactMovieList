@@ -1,5 +1,4 @@
 // common
-
 interface MovieBase {
   adult:             boolean
   backdrop_path:     string
@@ -23,7 +22,6 @@ export interface MovieMatch {
 export type ImageWidth = 'w200' | 'w400';
 
 // list
-
 export type Layout = 'list' | 'posters';
 export const LAYOUTS:Layout[] = ['list', 'posters'];
 
@@ -54,7 +52,6 @@ export interface MovieListData {
 }
 
 // item
-
 export interface MovieData extends MovieBase {
   belongs_to_collection: Collection
   budget: number

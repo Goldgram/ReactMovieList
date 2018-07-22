@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { getListUrl, getImageUrl } from './api';
-import { GenericViewController } from './generic-view-controller';
+import { getListUrl, getImageUrl } from '../api';
+import { GenericViewController } from '../common/generic-view-controller';
 import { MovieListData, MovieMatch, SORTS, Layout, LAYOUTS, MovieListResult
-  } from './types';
-import { getOptions } from './list-functions';
+  } from '../types';
+import { getOptions } from './functions';
 import { Options } from './options';
 
 export const ListController = (props:RouteComponentProps<MovieMatch>) => {

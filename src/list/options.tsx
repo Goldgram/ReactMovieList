@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { Layout, LAYOUTS, Sort, SORTS, OptionsType, MovieMatch } from './types';
+import { Ribbon } from '../common/ribbon';
+import { Layout, LAYOUTS, Sort, SORTS, OptionsType, MovieMatch
+  } from '../types';
 import { getOptions, findSort, getLayoutIcon, getSortText, getLayoutText
-  } from './list-functions';
-import { Ribbon } from './ribbon';
+  } from './functions';
 
 export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
 
@@ -25,9 +26,9 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
 
     if (history) {
       const search = [
-        newPage ? `page=${newPage}` : ``,
-        newLayout ? `layout=${newLayout}` : ``,
-        newSort ? `sort=${newSort}` : ``,
+        newPage && `page=${newPage}`,
+        newLayout && `layout=${newLayout}`,
+        newSort && `sort=${newSort}`,
       ].filter(s => s).join('&');
 
       history.push({ pathname: '/', search: search && `?${search}` });
@@ -55,9 +56,7 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
         >
           <i className="fa fa-chevron-left"/> PREV
         </div>
-        <div className="page-text">
-          PAGE: { page }
-        </div>
+        <div className="page-text">PAGE: { page }</div>
         <div
           className="no-select-click"
           onClick={this.onChangePage(page + 1)}
@@ -69,10 +68,10 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
       <div className="flex-between">
         { LAYOUTS.map((l:Layout, index:number) => {
             const hightlight = l === layout? 'highlight-c' : ''
-            const c = `no-select-click layout-icon ${hightlight}`;
+            const classes = `no-select-click layout-icon ${hightlight}`;
             return <div
               key={index}
-              className={c}
+              className={classes}
               onClick={this.onChangeLayout(l)}
               title={getLayoutText(l)}
             >

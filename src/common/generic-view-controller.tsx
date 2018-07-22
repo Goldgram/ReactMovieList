@@ -1,5 +1,4 @@
 import * as React from 'react';
-import 'whatwg-fetch'
 
 interface PropsTypes<T> {
   url: string
@@ -12,7 +11,7 @@ interface State<T> {
   data: T | undefined
 }
 
-const LOADING = <div className="text-center loading-icon">
+const LOADING = <div className="padding-top-50 text-center">
   <i className="fa fa-cog fa-spin fa-3x" />
 </div>;
 

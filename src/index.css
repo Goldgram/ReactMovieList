@@ -1,5 +1,4 @@
 /* fonts */
-
 @font-face {
 	font-family:"helvetica45";
 	src: url("./fonts/helveticaneueltpro_lt-webfont.eot");
@@ -22,7 +21,6 @@
 }
 
 /* common */
-
 body {
   margin: 0;
   padding: 0;
@@ -83,6 +81,7 @@ a {
 .padding-right-10 { padding-right: 10px; }
 .padding-right-20 { padding-right: 20px; }
 .padding-left-20 { padding-left: 20px; }
+.padding-top-50 { padding-top: 50px; }
 
 .no-select-click {
 	cursor: pointer;
@@ -94,10 +93,6 @@ a {
 	user-select: none;
 }
 
-.loading-icon {
-	padding-top: 50px;
-}
-
 .visibility-hidden { visibility: hidden; }
 
 .clearBothAfter:after {
@@ -107,14 +102,12 @@ a {
 }
 
 /* header */
-
 .logo {
   text-align: center;
 	font-size: 32px;
 }
 
 /* options */
-
 .page-text {
 	padding: 0 20px;
 }
@@ -128,7 +121,6 @@ a {
 
 
 /* list */
-
 .layout-list {
   margin-bottom: 20px;
 }
@@ -148,7 +140,6 @@ a {
 }
 
 /* item */
-
 .item-content div {
   margin-bottom: 20px;
 }
