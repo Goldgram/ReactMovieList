@@ -16,7 +16,7 @@ interface State<T> {
 export class GenericViewController<T>
   extends React.Component<PropsTypes<T>, State<T>> {
 
-  constructor(props:any, context:any) {
+  constructor(props:PropsTypes<T>, context:any) {
     super(props, context);
     this.state = {
       loading: false,
@@ -26,11 +26,16 @@ export class GenericViewController<T>
   }
 
   componentDidMount() {
-    this.getData();
+    this.getData(this.props.url);
   }
 
-  getData = () => {
-    const { url } = this.props;
+  componentWillReceiveProps(newProps:PropsTypes<T>) {
+    if (this.props.url !== newProps.url) {
+      this.getData(newProps.url);
+    }
+  }
+
+  getData = (url:string) => {
     if (url) {
       this.setState({ loading: true, error: false });
       fetch(url)
