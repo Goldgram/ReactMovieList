@@ -1,16 +1,13 @@
 import * as React from 'react';
-import 'whatwg-fetch'
-import 'core-js/fn/array/find';
 import { RouteComponentProps } from 'react-router-dom';
-import { Layout, LAYOUTS
-  // , Sort, SORTS
-  , OptionsType, MovieMatch } from './types';
-import { getOptions } from './list-functions';
+import { Layout, LAYOUTS, Sort, SORTS, OptionsType, MovieMatch } from './types';
+import { getOptions, findSort, getLayoutIcon, getSortText
+  } from './list-functions';
 
 export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
 
-  onChangeSort = (event:any) => {
-    this.changeOption({ sort: event.target.value });
+  onChangeSort = (event:React.ChangeEvent<HTMLSelectElement>) => {
+    this.changeOption({ sort: findSort(event.target.value) });
   }
 
   onChangePage = (page:number) => () => this.changeOption({ page });
@@ -26,29 +23,29 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
     const newSort = newOptions.sort || sort;
 
     if (history) {
-      const search = `?${[
+      const search = [
         newPage ? `page=${newPage}` : ``,
         newLayout ? `layout=${newLayout}` : ``,
-        newSort ? `page=${newSort}` : ``,
-      ].filter(s => s).join('&')}`;
+        newSort ? `sort=${newSort}` : ``,
+      ].filter(s => s).join('&');
 
-      history.push({ pathname: '/', search });
+      history.push({ pathname: '/', search: search && `?${search}` });
     }
   };
 
   render() {
     const {
-      page = 1, layout = LAYOUTS[0] // , sort = SORTS[0]
+      page = 1, layout = LAYOUTS[0], sort = SORTS[0]
     } = getOptions(this.props);
 
     // addribbon class
     return <div>
-
       <select onChange={this.onChangeSort}>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
+        { SORTS.map((s:Sort, index:number) =>
+          <option key={index} value={s} selected={s === sort}>
+            {getSortText(s)}
+          </option>
+        )}
       </select>
 
       <div>
@@ -60,10 +57,10 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
       { LAYOUTS.map((l:Layout, index:number) =>
           <button
             key={index}
-            className={layout === l ? 'selected' : ''}
+            className={l === layout? 'selected' : ''}
             onClick={this.onChangeLayout(l)}
           >
-            { l } icon
+            { getLayoutIcon(l) }
           </button>
       )}
 

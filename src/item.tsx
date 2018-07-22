@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import 'whatwg-fetch'
 import { getItemUrl } from './api';
 import { GenericViewController } from './generic-view-controller';
 import { MovieData, MovieMatch } from './types';

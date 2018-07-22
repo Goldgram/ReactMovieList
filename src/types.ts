@@ -22,8 +22,8 @@ export interface MovieMatch {
 
 // list
 
-export type Layout = 'list' | 'images' | 'titles';
-export const LAYOUTS:Layout[] = ['list', 'images', 'titles'];
+export type Layout = 'list' | 'images' | 'text';
+export const LAYOUTS:Layout[] = ['list', 'images', 'text'];
 
 export type Sort = 'popularity.desc' | 'popularity.asc'
 export const SORTS:Sort[] = ['popularity.desc', 'popularity.asc'];

@@ -1,5 +1,6 @@
+import 'core-js/fn/array/find';
 import { RouteComponentProps } from 'react-router-dom';
-import { MovieMatch, OptionsType, LAYOUTS, SORTS } from './types';
+import { MovieMatch, OptionsType, LAYOUTS, SORTS, Layout, Sort } from './types';
 
 const splitSearchString = (search:string):{[key:string]:string} =>
   search.substring(1).split('&').reduce((acc, s) => {
@@ -12,6 +13,9 @@ const splitSearchString = (search:string):{[key:string]:string} =>
       : acc;
   }, {});
 
+export const findLayout = (layout:string) => LAYOUTS.find(l => l === layout);
+export const findSort = (sort:string) => SORTS.find(s => s === sort);
+
 export const getOptions = (
   props:RouteComponentProps<MovieMatch>
 ):OptionsType => {
@@ -19,7 +23,24 @@ export const getOptions = (
   const all = splitSearchString(location.search);
   return {
     page: all.page ? parseInt(all.page, 10) : undefined,
-    layout: LAYOUTS.find(l => l === all.layout),
-    sort: SORTS.find(l => l === all.sort)
+    layout: findLayout(all.layout),
+    sort: findSort(all.sort)
+  }
+}
+
+export const getLayoutIcon = (layout:Layout) => {
+  switch(layout) {
+    case 'images': return 'iamgeIcon';
+    case 'text': return 'textIcon';
+    case 'list':
+    default: return 'listIcon';
+  }
+}
+
+export const getSortText = (sort:Sort) => {
+  switch(sort) {
+    case 'popularity.asc': return 'Popularity (Ascending)'
+    case 'popularity.desc':
+    default: return 'Popularity (Descending)';
   }
 }

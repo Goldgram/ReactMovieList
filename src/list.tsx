@@ -1,6 +1,4 @@
 import * as React from 'react';
-import 'whatwg-fetch'
-import 'core-js/fn/array/find';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { getListUrl } from './api';
 import { GenericViewController } from './generic-view-controller';
