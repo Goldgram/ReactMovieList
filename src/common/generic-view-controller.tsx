@@ -11,7 +11,7 @@ interface State<T> {
   data: T | undefined
 }
 
-const LOADING = <div className="padding-top-50 text-center">
+const LOADING = <div className="text-center loading-icon">
   <i className="fa fa-cog fa-spin fa-3x" />
 </div>;
 

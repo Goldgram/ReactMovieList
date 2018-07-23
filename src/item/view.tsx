@@ -18,16 +18,16 @@ export const getItemView = (movieId:string = '') => (data:MovieData) => {
       <div className="item-movie-id">{ movieId }</div>
     </Ribbon>
 
-    <div className="content-container padding-top-bottom-20 flex-start item">
+    <div className="content-container item">
       { poster_path &&
         <img
-          className="item-image padding-bottom-20"
+          className="item-image"
           src={getImageUrl(poster_path, 'w400')}
           alt={`${title} poster`}
         />
       }
 
-      <div className="padding-left-20 item-content">
+      <div className="item-content">
         <div className="wide-font">{ title || '-' }</div>
         <div>Release Date: { release_date || '----/--/--' }</div>
         <div>Runtime: { runtime } min</div>
@@ -35,10 +35,12 @@ export const getItemView = (movieId:string = '') => (data:MovieData) => {
         <div>Total Votes: { vote_count }</div>
         <div>Budget: { budget ? `$${budget}` : '-' }</div>
         <div>Overview:<br/>{ overview || '-' }</div>
-        { production_companies && <div>
-          Production Companies:
-          <Companies companies={production_companies}/>
-        </div> }
+        { production_companies &&
+          <div>
+            Production Companies:
+            <Companies companies={production_companies}/>
+          </div>
+        }
       </div>
     </div>
   </React.Fragment>;

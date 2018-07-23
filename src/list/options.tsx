@@ -58,7 +58,7 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
         >
           <i className="fa fa-chevron-left"/> PREV
         </div>
-        <div className="page-text">PAGE: { page }</div>
+        <div className="padding-left-right-20">PAGE: { page }</div>
         <div
           className="no-select-click"
           onClick={this.onChangePage(page + 1)}

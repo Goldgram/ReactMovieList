@@ -40,7 +40,7 @@ export const ListItem = (props:ListItemProps) => {
         Vote Average: { vote_average } / 10
       </div>
     </div>
-    <div className="padding-right-20 no-wrap more-tag">
+    <div className="more-tag">
       <i className="fa fa-info-circle"/> MORE INFO
     </div>
   </div>;

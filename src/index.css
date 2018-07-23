@@ -36,20 +36,12 @@ a {
 }
 
 .primary-bg { background-color: #323232; }
-.seondary-bg { background-color: #222222; }
 .content-bg { background-color: #FFFFFF; }
 .highlight-bg { background-color: #1FADEA; }
 
 .primary-c { color: #323232; }
-.seondary-c { color: #222222; }
 .content-c { color: #FFFFFF; }
 .highlight-c { color: #1FADEA; }
-
-.content-container {
-  margin: 0 auto;
-	max-width: 1000px;
-	padding: 0 20px;
-}
 
 .text-center { text-align: center; }
 
@@ -58,14 +50,15 @@ a {
 	font-size: 22px;
 }
 
+.content-container {
+  margin: 0 auto;
+	max-width: 1000px;
+	padding: 0 20px;
+}
+
 .flex-between {
   display: flex;
 	align-items: center;
-	justify-content: space-between;
-}
-.flex-start {
-  display: flex;
-	align-items: flex-start;
 	justify-content: space-between;
 }
 
@@ -73,16 +66,12 @@ a {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-.padding-top-bottom-20 {
-	padding-top: 20px;
-	padding-bottom: 20px;
+.padding-left-right-20 {
+	padding-left: 20px;
+	padding-right: 20px;
 }
 .padding-bottom-10 { padding-bottom: 10px; }
-.padding-bottom-20 { padding-bottom: 20px; }
 .padding-right-10 { padding-right: 10px; }
-.padding-right-20 { padding-right: 20px; }
-.padding-left-20 { padding-left: 20px; }
-.padding-top-50 { padding-top: 50px; }
 
 .no-select-click {
 	cursor: pointer;
@@ -102,18 +91,20 @@ a {
   clear: both;
 }
 
-.no-wrap { white-space: nowrap; }
-
 /* header */
 .logo {
   text-align: center;
 	font-size: 32px;
+	padding: 10px 0;
+	color: #1FADEA;
+}
+
+/* common */
+.loading-icon {
+	padding-top: 50px;
 }
 
 /* options */
-.page-text {
-	padding: 0 20px;
-}
 .layout-icon {
 	font-size: 22px;
 	padding: 0 8px;
@@ -122,8 +113,11 @@ a {
 	font-size: 20px;
 }
 
-
 /* list */
+.layout-list, .layout-posters {
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
 .layout-list .list-item {
   margin-bottom: 20px;
 }
@@ -134,6 +128,10 @@ a {
 	padding: 10px 20px;
 	flex-grow: 1;
 }
+.more-tag{
+	padding-right: 20px;
+	white-space: nowrap;
+}
 
 .layout-posters .list-item {
 	float: left;
@@ -143,8 +141,22 @@ a {
 }
 
 /* item */
-.item-content div {
-  margin-bottom: 20px;
+.item {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+.item-image {
+	padding-bottom: 20px;
+}
+.item-content {
+	padding-left: 20px;
+}
+
+.item-content > div {
+	margin-bottom: 20px;
 }
 .company-logo {
 	float: left;
