@@ -12,14 +12,15 @@ export const getItemView = (movieId:string = '') => (data:MovieData) => {
 
   return <React.Fragment>
     <Ribbon>
-      <Link to="/">
+      <Link to="/" className="padding-top-bottom-10">
         <i className="fa fa-chevron-left"/> BACK
       </Link>
-      <div>{ movieId }</div>
+      <div className="item-movie-id">{ movieId }</div>
     </Ribbon>
 
-    <div className="content-container padding-top-bottom-20 flex-start">
+    <div className="content-container padding-top-bottom-20 flex-start item">
       { poster_path && <img
+        className="item-image padding-bottom-20"
         src={getImageUrl(poster_path, 'w400')}
         alt={`${title} poster`}
       /> }

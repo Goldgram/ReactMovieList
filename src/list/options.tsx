@@ -41,15 +41,17 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
     } = getOptions(this.props);
 
     return <Ribbon>
-      <select onChange={this.onChangeSort}>
-        { SORTS.map((s:Sort, index:number) =>
-          <option key={index} value={s} selected={s === sort}>
-            {getSortText(s)}
-          </option>
-        )}
-      </select>
+      <div className="padding-top-bottom-10 ">
+        <select className="padding-top-bottom-10" onChange={this.onChangeSort}>
+          { SORTS.map((s:Sort, index:number) =>
+            <option key={index} value={s} selected={s === sort}>
+              {getSortText(s)}
+            </option>
+          )}
+        </select>
+      </div>
 
-      <div className="flex-between">
+      <div className="flex-between padding-top-bottom-10 ">
         <div
           className={`no-select-click ${page < 2 ? 'visibility-hidden' : ''}`}
           onClick={this.onChangePage(page - 1)}
@@ -65,7 +67,7 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
         </div>
       </div>
 
-      <div className="flex-between">
+      <div className="flex-between padding-top-bottom-10 ">
         { LAYOUTS.map((l:Layout, index:number) => {
             const hightlight = l === layout? 'highlight-c' : ''
             const classes = `no-select-click layout-icon ${hightlight}`;

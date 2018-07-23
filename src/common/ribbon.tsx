@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const Ribbon = (props:Props) => <div className="primary-bg">
-  <div className="content-container flex-between padding-top-bottom-10">
+  <div className="content-container flex-between ribbon">
     { props.children }
   </div>
 </div>
