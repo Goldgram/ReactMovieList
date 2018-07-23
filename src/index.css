@@ -158,10 +158,15 @@ a {
 .item-content > div {
 	margin-bottom: 20px;
 }
-.company-logo {
+.company {
 	float: left;
+	width: 200px;
 	padding: 5px;
 	margin: 4px 10px 10px 0;
+}
+.company img {
+	padding-bottom: 5px;
+	border-bottom: 1px solid #323232;
 }
 
 /* media queries */

@@ -11,12 +11,15 @@ export const Companies = ({ companies = [] }:CompaniesProps) => {
     { companies.length
       ? companies.map((company, i) => {
         const { name, logo_path } = company;
-          return <div key={i} className="content-bg primary-c company-logo">
-            <img
-              src={getImageUrl(logo_path, 'w200')}
-              title={name}
-              alt={name}
-            />
+          return <div key={i} className="content-bg primary-c company">
+            { logo_path &&
+              <img
+                src={getImageUrl(logo_path, 'w200')}
+                title={name}
+                alt={name}
+              />
+            }
+            <div className="text-center">{name}</div>
           </div>;
         })
       : '-'
