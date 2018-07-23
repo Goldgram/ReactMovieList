@@ -7,7 +7,7 @@ const splitSearchString = (search:string):{[key:string]:string} =>
     const [key, value] = s.split('=');
     return key && value
       ? Object.assign(
-          {[decodeURIComponent(key)]: decodeURIComponent(value)},
+          { [decodeURIComponent(key)]: decodeURIComponent(value) },
           acc
         )
       : acc;

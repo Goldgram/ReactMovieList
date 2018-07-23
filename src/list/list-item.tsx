@@ -23,19 +23,25 @@ export const ListItem = (props:ListItemProps) => {
   }
 
   return <div className="flex-between primary-bg list-item">
-    { backdrop_path && <img
-      src={getImageUrl(backdrop_path, 'w200')}
-      alt={`${title} image`}
-    /> }
+    { backdrop_path &&
+      <img
+        src={getImageUrl(backdrop_path, 'w200')}
+        alt={`${title} image`}
+      />
+    }
     <div className="list-item-content">
-      <div className="wide-font padding-bottom-10">{ title || '-' }</div>
-      <div className="padding-bottom-10">
-        Release Date: <span>{ release_date || '----/--/--'}</span>
+      <div className="wide-font padding-bottom-10">
+        { title || '-' }
       </div>
-      <div>Vote Average: <span>{ vote_average } / 10</span></div>
+      <div className="padding-bottom-10">
+        Release Date: { release_date || '----/--/--'}
+      </div>
+      <div>
+        Vote Average: { vote_average } / 10
+      </div>
     </div>
-    <div className="padding-right-20 more-tag">
-      <i className="fa fa-info-circle"/> MORE
+    <div className="padding-right-20 no-wrap more-tag">
+      <i className="fa fa-info-circle"/> MORE INFO
     </div>
   </div>;
 }

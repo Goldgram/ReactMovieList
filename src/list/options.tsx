@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { Ribbon } from '../common/ribbon';
-import { Layout, LAYOUTS, Sort, SORTS, OptionsType, MovieMatch
+import { Layout, LAYOUTS, SORTS, OptionsType, MovieMatch
   } from '../types';
 import { getOptions, findSort, getLayoutIcon, getSortText, getLayoutText
   } from './functions';
 
 export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
 
-  onChangeSort = (event:React.ChangeEvent<HTMLSelectElement>) => {
-    this.changeOption({ sort: findSort(event.target.value) });
+  onChangeSort = (e:React.ChangeEvent<HTMLSelectElement>) => {
+    this.changeOption({ sort: findSort(e.target.value) });
   }
 
   onChangePage = (page:number) => () => this.changeOption({ page });
@@ -41,17 +41,17 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
     } = getOptions(this.props);
 
     return <Ribbon>
-      <div className="padding-top-bottom-10 ">
-        <select className="padding-top-bottom-10" onChange={this.onChangeSort}>
-          { SORTS.map((s:Sort, index:number) =>
-            <option key={index} value={s} selected={s === sort}>
-              {getSortText(s)}
-            </option>
+      <div className="padding-top-bottom-10">
+        <select onChange={this.onChangeSort}>
+          { SORTS.map((s, i) =>
+              <option key={i} value={s} selected={s === sort}>
+                {getSortText(s)}
+              </option>
           )}
         </select>
       </div>
 
-      <div className="flex-between padding-top-bottom-10 ">
+      <div className="flex-between padding-top-bottom-10">
         <div
           className={`no-select-click ${page < 2 ? 'visibility-hidden' : ''}`}
           onClick={this.onChangePage(page - 1)}
@@ -67,13 +67,12 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
         </div>
       </div>
 
-      <div className="flex-between padding-top-bottom-10 ">
-        { LAYOUTS.map((l:Layout, index:number) => {
+      <div className="flex-between padding-top-bottom-10">
+        { LAYOUTS.map((l, i) => {
             const hightlight = l === layout? 'highlight-c' : ''
-            const classes = `no-select-click layout-icon ${hightlight}`;
             return <div
-              key={index}
-              className={classes}
+              key={i}
+              className={`no-select-click layout-icon ${hightlight}`}
               onClick={this.onChangeLayout(l)}
               title={getLayoutText(l)}
             >

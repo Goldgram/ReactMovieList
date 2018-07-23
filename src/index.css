@@ -102,6 +102,8 @@ a {
   clear: both;
 }
 
+.no-wrap { white-space: nowrap; }
+
 /* header */
 .logo {
   text-align: center;
@@ -168,9 +170,12 @@ a {
   .layout-posters { width: 400px; }
 }
 @media only screen and (max-width: 599px) {
-	.list-item, .item { flex-direction: column; }
+	.item { flex-direction: column; }
 	.item > div { padding-left: 0; }
 	.item-image { width: auto; }
+}
+@media only screen and (max-width: 479px) {
+	.list-item{ flex-direction: column; }
 }
 @media only screen and (max-width: 439px) {
 	.layout-posters { width: 200px; }

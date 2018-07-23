@@ -19,11 +19,13 @@ export const getItemView = (movieId:string = '') => (data:MovieData) => {
     </Ribbon>
 
     <div className="content-container padding-top-bottom-20 flex-start item">
-      { poster_path && <img
-        className="item-image padding-bottom-20"
-        src={getImageUrl(poster_path, 'w400')}
-        alt={`${title} poster`}
-      /> }
+      { poster_path &&
+        <img
+          className="item-image padding-bottom-20"
+          src={getImageUrl(poster_path, 'w400')}
+          alt={`${title} poster`}
+        />
+      }
 
       <div className="padding-left-20 item-content">
         <div className="wide-font">{ title || '-' }</div>
