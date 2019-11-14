@@ -11,9 +11,12 @@ interface State<T> {
   data: T | undefined
 }
 
-const LOADING = <div className="text-center loading-icon">
-  <i className="fa fa-cog fa-spin fa-3x" />
-</div>;
+const LOADING = <>
+  <div className="loading-bg"/>
+  <div className="text-center loading-icon">
+    <i className="fa fa-cog fa-spin fa-3x" />
+  </div>
+</>;
 
 const ERROR = <div className="padding-top-bottom-10 text-center">
   Oops! Something went wrong! Please try again later
@@ -71,10 +74,14 @@ export class GenericViewController<T>
     const { viewFn } = this.props;
     const { loading, error, data } = this.state;
 
-    return loading ? LOADING
-      : error ? ERROR
-        :  data ? viewFn(data)
-          : NORESULTS;
+    return <div className="pos-rel">
+      { loading && LOADING }
+      { error ? ERROR
+        : data ? viewFn(data)
+          : loading ? undefined
+            : NORESULTS
+      }
+    </div>;
   }
 }
 
