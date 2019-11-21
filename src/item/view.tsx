@@ -15,7 +15,7 @@ export const getItemView = (movieId:string = '') => (data:MovieData) => {
       <Link to="/" className="padding-top-bottom-10">
         <i className="fa fa-chevron-left"/> BACK
       </Link>
-      <div className="item-movie-id">{ movieId }</div>
+      <div className="item-movie-id text-right">{ movieId }</div>
     </Ribbon>
 
     <div className="content-container item">
