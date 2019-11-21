@@ -14,12 +14,16 @@ export const ListItem = (props:ListItemProps) => {
   } = item;
 
   if (layout === 'posters') {
-    return <img
-      className="list-item"
-      src={getImageUrl(poster_path, 'w200')}
-      title={title}
-      alt={`${title} poster`}
-    />
+    return poster_path
+      ? <img
+          className="list-item"
+          src={getImageUrl(poster_path, 'w200')}
+          title={title}
+          alt={`${title} poster`}
+        />
+      : <div className="list-item">
+          <div className="fallback-poster flex-center text-center">{title}</div>
+        </div>;
   }
 
   return <div className="flex-between primary-bg list-item">

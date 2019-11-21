@@ -51,7 +51,7 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
         </select>
       </div>
 
-      <div className="pagination padding-top-bottom-10">
+      <div className="flex-center padding-top-bottom-10">
         <div
           className={`no-select-click ${page < 2 ? 'visibility-hidden' : ''}`}
           onClick={this.onChangePage(page - 1)}
