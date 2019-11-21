@@ -1,4 +1,5 @@
-import * as React from 'react';
+import * as React from "react";
+import { LoadingIcon } from "./loading-icon";
 
 interface PropsTypes<T> {
   url: string
@@ -13,9 +14,7 @@ interface State<T> {
 
 const LOADING = <>
   <div className="loading-bg"/>
-  <div className="text-center loading-icon">
-    <i className="fa fa-cog fa-spin fa-3x" />
-  </div>
+  { <LoadingIcon/> }
 </>;
 
 const ERROR = <div className="padding-top-bottom-10 text-center">

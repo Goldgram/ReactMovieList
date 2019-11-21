@@ -19,19 +19,19 @@ export interface MovieMatch {
   movieId: string
 }
 
-export type ImageWidth = 'w200' | 'w400';
+export type ImageWidth = "w200" | "w400";
 
 // list
-export type Layout = 'posters' | 'list';
-export const LAYOUTS:Layout[] = ['posters', 'list'];
+export type Layout = "posters" | "list";
+export const LAYOUTS:Layout[] = ["posters", "list"];
 
-export type Sort = 'popularity.desc' | 'popularity.asc'
-  | 'release_date.desc' | 'release_date.asc'
-  | 'vote_average.desc' | 'vote_average.asc';
+export type Sort = "popularity.desc" | "popularity.asc"
+  | "release_date.desc" | "release_date.asc"
+  | "vote_average.desc" | "vote_average.asc";
 export const SORTS:Sort[] = [
-  'popularity.desc', 'popularity.asc'
-  , 'release_date.desc', 'release_date.asc'
-  , 'vote_average.desc', 'vote_average.asc'
+  "popularity.desc", "popularity.asc"
+  , "release_date.desc", "release_date.asc"
+  , "vote_average.desc", "vote_average.asc"
 ];
 
 export interface OptionsType {

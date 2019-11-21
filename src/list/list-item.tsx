@@ -1,6 +1,7 @@
-import * as React from 'react';
-import { getImageUrl } from '../api';
-import { Layout, MovieListResult } from '../types';
+import * as React from "react";
+import { getImageUrl } from "../api";
+import { Layout, MovieListResult } from "../types";
+import { ImageWithLoading } from "src/common/image-with-loading";
 
 interface ListItemProps {
   item: MovieListResult
@@ -10,35 +11,37 @@ interface ListItemProps {
 export const ListItem = (props:ListItemProps) => {
   const { item, layout } = props;
   const {
-    title, release_date, vote_average = '-', backdrop_path, poster_path
+    title, release_date, vote_average = "-", backdrop_path, poster_path
   } = item;
 
-  if (layout === 'posters') {
+  const errorComp = <div className="list-item">
+    <div className="fallback-poster flex-center text-center">{title}</div>
+  </div>
+
+  if (layout === "posters") {
     return poster_path
-      ? <img
+      ? <ImageWithLoading
           className="list-item"
-          src={getImageUrl(poster_path, 'w200')}
-          title={title}
+          src={getImageUrl(poster_path, "w200")}
           alt={`${title} poster`}
+          errorComp={errorComp}
         />
-      : <div className="list-item">
-          <div className="fallback-poster flex-center text-center">{title}</div>
-        </div>;
+      : errorComp;
   }
 
   return <div className="flex-between primary-bg list-item">
     { backdrop_path &&
       <img
-        src={getImageUrl(backdrop_path, 'w200')}
+        src={getImageUrl(backdrop_path, "w200")}
         alt={`${title} image`}
       />
     }
     <div className="list-item-content">
       <div className="wide-font padding-bottom-10">
-        { title || '-' }
+        { title || "-" }
       </div>
       <div className="padding-bottom-10">
-        Release Date: { release_date || '----/--/--'}
+        Release Date: { release_date || "----/--/--"}
       </div>
       <div>
         Vote Average: { vote_average } / 10

@@ -1,10 +1,10 @@
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from "react-router-dom";
 import { MovieMatch, OptionsType, LAYOUTS, SORTS, Layout, Sort
-  } from '../types';
+  } from "../types";
 
 const splitSearchString = (search:string):{[key:string]:string} =>
-  search.substring(1).split('&').reduce((acc, s) => {
-    const [key, value] = s.split('=');
+  search.substring(1).split("&").reduce((acc, s) => {
+    const [key, value] = s.split("=");
     return key && value
       ? Object.assign(
           { [decodeURIComponent(key)]: decodeURIComponent(value) },
@@ -30,28 +30,28 @@ export const getOptions = (
 
 export const getLayoutIcon = (layout:Layout) => {
   switch(layout) {
-    case 'list': return 'fa-th-list';
-    case 'posters': return 'fa-file-image-o';
-    default: return '';
+    case "list": return "fa-th-list";
+    case "posters": return "fa-file-image-o";
+    default: return "";
   }
 }
 
 export const getLayoutText = (layout:Layout) => {
   switch(layout) {
-    case 'list': return 'List';
-    case 'posters': return 'Posters';
-    default: return '';
+    case "list": return "List";
+    case "posters": return "Posters";
+    default: return "";
   }
 }
 
 export const getSortText = (sort:Sort) => {
   switch(sort) {
-    case 'popularity.desc': return 'Popularity (Descending)';
-    case 'popularity.asc': return 'Popularity (Ascending)'
-    case 'release_date.desc': return 'Release Date (Descending)'
-    case 'release_date.asc': return 'Release Date (Ascending)'
-    case 'vote_average.desc': return 'Vote Average (Descending)'
-    case 'vote_average.asc': return 'Vote Average (Ascending)'
-    default: return '';
+    case "popularity.desc": return "Popularity (Descending)";
+    case "popularity.asc": return "Popularity (Ascending)"
+    case "release_date.desc": return "Release Date (Descending)"
+    case "release_date.asc": return "Release Date (Ascending)"
+    case "vote_average.desc": return "Vote Average (Descending)"
+    case "vote_average.asc": return "Vote Average (Ascending)"
+    default: return "";
   }
 }

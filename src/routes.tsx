@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Link, Route, BrowserRouter } from 'react-router-dom';
-import { ListController } from './list/controller';
-import { ItemController } from './item/controller';
+import * as React from "react";
+import { Link, Route, BrowserRouter } from "react-router-dom";
+import { ListController } from "./list/controller";
+import { ItemController } from "./item/controller";
 
 export const Routes = () => {
   return <BrowserRouter>

@@ -1,6 +1,6 @@
 import { Sort, SORTS, ImageWidth } from "./types";
 
-const APIKEY = '4a203abe54a397a3160c4eb42e275f70'
+const APIKEY = "4a203abe54a397a3160c4eb42e275f70"
 
 export const getListUrl = (
   page:number = 1,
@@ -9,11 +9,11 @@ export const getListUrl = (
   + `&sort_by=${sortBy}`
   + `&page=${page}`;
 
-export const getItemUrl = (movieId:string = '') =>
+export const getItemUrl = (movieId:string = "") =>
   `https://api.themoviedb.org/3/movie/${movieId}?api_key=${APIKEY}`;
 
 export const getImageUrl = (
-  imagePath:string = '/',
-  width:ImageWidth = 'w200'
+  imagePath:string = "/",
+  width:ImageWidth = "w200"
 ) => `https://image.tmdb.org/t/p/${width}${imagePath}`;
 
