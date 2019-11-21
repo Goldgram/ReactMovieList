@@ -67,9 +67,9 @@ a {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-.padding-left-right-20 {
-	padding-left: 20px;
-	padding-right: 20px;
+.padding-left-right-30 {
+	padding-left: 30px;
+	padding-right: 30px;
 }
 .padding-bottom-10 { padding-bottom: 10px; }
 .padding-right-10 { padding-right: 10px; }
@@ -115,6 +115,23 @@ a {
 }
 
 /* options */
+.ribbon {
+	display: flex;
+	align-items: center;
+}
+.ribbon > div {
+	flex-grow: 1;
+	flex-basis: 0;
+}
+.pagination {
+	display: flex;
+	justify-content: center;
+}
+.layouts {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
 .layout-icon {
 	font-size: 22px;
 	padding: 0 8px;
@@ -122,6 +139,11 @@ a {
 .layout-icon .fa-file-image-o {
 	font-size: 20px;
 }
+.layout-icon .fa-th-list {
+	padding-top: 6px;
+}
+
+
 
 /* list */
 .layout-list, .layout-posters {

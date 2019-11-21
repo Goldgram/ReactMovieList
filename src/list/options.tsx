@@ -51,14 +51,14 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
         </select>
       </div>
 
-      <div className="flex-between padding-top-bottom-10">
+      <div className="pagination padding-top-bottom-10">
         <div
           className={`no-select-click ${page < 2 ? 'visibility-hidden' : ''}`}
           onClick={this.onChangePage(page - 1)}
         >
           <i className="fa fa-chevron-left"/> PREV
         </div>
-        <div className="padding-left-right-20">PAGE: { page }</div>
+        <div className="padding-left-right-30 text-center">PAGE: { page }</div>
         <div
           className="no-select-click"
           onClick={this.onChangePage(page + 1)}
@@ -67,7 +67,7 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
         </div>
       </div>
 
-      <div className="flex-between padding-top-bottom-10">
+      <div className="layouts padding-top-bottom-10">
         { LAYOUTS.map((l, i) => {
             const hightlight = l === layout? 'highlight-c' : ''
             return <div
