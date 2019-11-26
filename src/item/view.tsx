@@ -6,9 +6,12 @@ import { Ribbon } from "../common/ribbon";
 import { Companies } from "./companies";
 import { ImageWithLoading } from "../common/image-with-loading";
 
+const addCommas = (n:number) =>
+  n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
 export const getItemView = (movieId:string = "") => (data:MovieData) => {
   const { title, release_date, vote_average = "-", overview, poster_path
-    , production_companies = [], budget, runtime = "-", vote_count = "-"
+    , production_companies = [], budget, runtime = "-", vote_count
   } = data;
 
   return <React.Fragment>
@@ -34,8 +37,8 @@ export const getItemView = (movieId:string = "") => (data:MovieData) => {
         <div>Release Date: { release_date || "----/--/--" }</div>
         <div>Runtime: { runtime } min</div>
         <div>Vote Average: { vote_average } / 10</div>
-        <div>Total Votes: { vote_count }</div>
-        <div>Budget: { budget ? `$${budget}` : "-" }</div>
+        <div>Total Votes: { vote_count ? addCommas(vote_count) : "-" }</div>
+        <div>Budget: { budget ? `$ ${addCommas(budget)}` : "-" }</div>
         <div>Overview:<br/>{ overview || "-" }</div>
         { production_companies &&
           <div>
