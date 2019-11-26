@@ -212,7 +212,7 @@ a {
 	padding-bottom: 20px;
 	display: flex;
 	align-items: flex-start;
-	justify-content: space-between;
+	justify-content: flex-start;
 }
 .item-image img {
 	width: 400px;
