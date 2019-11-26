@@ -1,5 +1,5 @@
 import * as React from "react";
-// import { LoadingIcon } from "./loading-icon";
+import { LoadingIcon } from "./loading-icon";
 
 interface PropTypes {
   src: string
@@ -39,33 +39,19 @@ export class ImageWithLoading extends React.Component<PropTypes, StateType>
   };
 
   render() {
-  //   const { className = "", alt
-  //   // , errorComp = null
-  // } = this.props;
-    const {
-      // imageLoading
-      // , imageError
-      // ,
-      src } = this.state;
+    const { className = "", alt, errorComp = null } = this.props;
+    const { imageLoading, imageError, src } = this.state;
 
-    // const loadingClass = imageLoading ? "x-image-loading" : "";
-
-    return <img
-      // onLoad={this.onImageLoaded}
-      // onError={this.onImageError}
-      src={src}
-      // alt={alt}
-    />
-    // return imageError ? errorComp
-    //   : src &&
-    //     <div className={`x-image-with-loading ${loadingClass} ${className}`}>
-    //       {imageLoading && <LoadingIcon />}
-    //       <img
-    //         onLoad={this.onImageLoaded}
-    //         onError={this.onImageError}
-    //         src={src}
-    //         alt={alt}
-    //       />
-    //     </div>;
+    return imageError ? errorComp
+      : src &&
+        <div className={`image-with-loading pos-rel ${className}`}>
+          {imageLoading && <LoadingIcon />}
+          <img
+            onLoad={this.onImageLoaded}
+            onError={this.onImageError}
+            src={src}
+            alt={alt}
+          />
+        </div>;
   }
 }

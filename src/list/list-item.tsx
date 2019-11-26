@@ -31,7 +31,7 @@ export const ListItem = (props:ListItemProps) => {
 
   return <div className="flex-between primary-bg list-item">
     { backdrop_path &&
-      <img
+      <ImageWithLoading
         src={getImageUrl(backdrop_path, "w200")}
         alt={`${title} image`}
       />

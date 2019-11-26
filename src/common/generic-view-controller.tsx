@@ -14,7 +14,9 @@ interface State<T> {
 
 const LOADING = <>
   <div className="loading-bg"/>
-  { <LoadingIcon/> }
+  <div className="generic-loading text-center">
+    <LoadingIcon/>
+  </div>
 </>;
 
 const ERROR = <div className="padding-top-bottom-10 text-center">
@@ -74,12 +76,12 @@ export class GenericViewController<T>
     const { loading, error, data } = this.state;
 
     return <div className="pos-rel">
-      { loading && LOADING }
       { error ? ERROR
         : data ? viewFn(data)
-          : loading ? undefined
-            : NORESULTS
+        : loading ? undefined
+        : NORESULTS
       }
+      { loading && LOADING }
     </div>;
   }
 }
