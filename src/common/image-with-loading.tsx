@@ -3,7 +3,6 @@ import { LoadingIcon } from "./loading-icon";
 
 interface PropTypes {
   src: string
-  className?: string
   alt?: string
   errorComp?: JSX.Element
 }
@@ -39,19 +38,19 @@ export class ImageWithLoading extends React.Component<PropTypes, StateType>
   };
 
   render() {
-    const { className = "", alt, errorComp = null } = this.props;
+    const { alt, errorComp = null } = this.props;
     const { imageLoading, imageError, src } = this.state;
 
     return imageError ? errorComp
       : src &&
-        <div className={`image-with-loading pos-rel ${className}`}>
-          {imageLoading && <LoadingIcon />}
+        <div className="image-with-loading pos-rel">
           <img
             onLoad={this.onImageLoaded}
             onError={this.onImageError}
             src={src}
             alt={alt}
           />
+          {imageLoading && <LoadingIcon />}
         </div>;
   }
 }

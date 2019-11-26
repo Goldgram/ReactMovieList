@@ -14,19 +14,20 @@ export const ListItem = (props:ListItemProps) => {
     title, release_date, vote_average = "-", backdrop_path, poster_path
   } = item;
 
-  const errorComp = <div className="list-item">
-    <div className="fallback-poster flex-center text-center">{title}</div>
-  </div>
+  const errorComp =
+    <div className="fallback-poster flex-center text-center">{title}</div>;
 
   if (layout === "posters") {
-    return poster_path
-      ? <ImageWithLoading
-          className="list-item"
-          src={getImageUrl(poster_path, "w200")}
-          alt={`${title} poster`}
-          errorComp={errorComp}
-        />
-      : errorComp;
+    return <div className="list-item">
+      { poster_path
+        ? <ImageWithLoading
+            src={getImageUrl(poster_path, "w200")}
+            alt={`${title} poster`}
+            errorComp={errorComp}
+          />
+        : errorComp
+      }
+    </div>;
   }
 
   return <div className="flex-between primary-bg list-item">

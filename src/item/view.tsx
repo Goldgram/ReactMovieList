@@ -4,6 +4,7 @@ import { getImageUrl } from "../api";
 import { MovieData, } from "../types";
 import { Ribbon } from "../common/ribbon";
 import { Companies } from "./companies";
+import { ImageWithLoading } from "../common/image-with-loading";
 
 export const getItemView = (movieId:string = "") => (data:MovieData) => {
   const { title, release_date, vote_average = "-", overview, poster_path
@@ -20,11 +21,12 @@ export const getItemView = (movieId:string = "") => (data:MovieData) => {
 
     <div className="content-container item">
       { poster_path &&
-        <img
-          className="item-image"
-          src={getImageUrl(poster_path, "w400")}
-          alt={`${title} poster`}
-        />
+        <div className="item-image">
+          <ImageWithLoading
+            src={getImageUrl(poster_path, "w400")}
+            alt={`${title} poster`}
+          />
+        </div>
       }
 
       <div className="item-content">
