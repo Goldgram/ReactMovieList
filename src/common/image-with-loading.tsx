@@ -41,9 +41,11 @@ export class ImageWithLoading extends React.Component<PropTypes, StateType>
     const { alt, errorComp = null } = this.props;
     const { imageLoading, imageError, src } = this.state;
 
+    const loadingClass = imageLoading ? "is-loading" : "";
+
     return imageError ? errorComp
       : src &&
-        <div className="image-with-loading pos-rel">
+        <div className={`image-with-loading pos-rel ${loadingClass}`}>
           <img
             onLoad={this.onImageLoaded}
             onError={this.onImageError}

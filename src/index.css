@@ -128,9 +128,13 @@ a {
 .image-with-loading .loading-icon {
   opacity: 0.7;
 }
-.image-with-loading img{
+.image-with-loading img {
 	display: block;
 }
+.image-with-loading.is-loading img {
+	visibility: hidden;
+}
+
 
 /* options */
 .ribbon {
