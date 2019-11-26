@@ -11,6 +11,7 @@ Live example: [http://movies.willbrennan.tech/](http://movies.willbrennan.tech/)
 - **Item**: The movieId drives which item gets loaded, shows poster image and various details (Release Date, Runtime, Budget etc.).
 - Using *The Movie Database API*. 
 - Uses generic and common components (controller/loading/images logic).
+- This is written in a Functional Programming like approach.
 - Basic css, fonts, and responsiveness.
 
 ### Set Up:
