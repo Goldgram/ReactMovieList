@@ -11,10 +11,13 @@ export const ListController = (props:RouteComponentProps<MovieMatch>) => {
   const { page = 1, layout = LAYOUTS[0], sort = SORTS[0] } = getOptions(props);
 
   return <React.Fragment>
-    <Options {...props}/>
-    <GenericViewController<MovieListData>
-      url={getListUrl(page, sort)}
-      viewFn={getListView(layout)}
-    />
+    <div className="list-content">
+      <Options {...props}/>
+      <GenericViewController<MovieListData>
+        url={getListUrl(page, sort)}
+        viewFn={getListView(layout)}
+      />
+    </div>
+    <Options {...props} pageOnly={true}/>
   </React.Fragment>
 }

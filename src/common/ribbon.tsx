@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface Props {
-  children?: JSX.Element | JSX.Element[]
+  children?: React.ReactNode
 }
 
 export const Ribbon = (props:Props) => <div className="primary-bg">

@@ -6,7 +6,11 @@ import { Layout, LAYOUTS, SORTS, OptionsType, MovieMatch
 import { getOptions, findSort, getLayoutIcon, getSortText, getLayoutText
   } from "./functions";
 
-export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
+interface Proptypes extends RouteComponentProps<MovieMatch> {
+  pageOnly?: boolean
+}
+
+export class Options extends React.Component<Proptypes> {
 
   onChangeSort = (e:React.ChangeEvent<HTMLSelectElement>) => {
     this.changeOption({ sort: findSort(e.target.value) });
@@ -39,17 +43,21 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
     const {
       page = 1, layout = LAYOUTS[0], sort = SORTS[0]
     } = getOptions(this.props);
+    const { pageOnly } = this.props;
 
     return <Ribbon>
-      <div className="padding-top-bottom-10">
-        <select onChange={this.onChangeSort}>
-          { SORTS.map((s, i) =>
-              <option key={i} value={s} selected={s === sort}>
-                {getSortText(s)}
-              </option>
-          )}
-        </select>
-      </div>
+
+      { !pageOnly &&
+        <div className="padding-top-bottom-10">
+          <select onChange={this.onChangeSort}>
+            { SORTS.map((s, i) =>
+                <option key={i} value={s} selected={s === sort}>
+                  {getSortText(s)}
+                </option>
+            )}
+          </select>
+        </div>
+      }
 
       <div className="flex-center padding-top-bottom-10">
         <div
@@ -67,20 +75,22 @@ export class Options extends React.Component<RouteComponentProps<MovieMatch>> {
         </div>
       </div>
 
-      <div className="layouts padding-top-bottom-10">
-        { LAYOUTS.map((l, i) => {
-            const hightlight = l === layout? "highlight-c" : ""
-            return <div
-              key={i}
-              className={`no-select-click layout-icon ${hightlight}`}
-              onClick={this.onChangeLayout(l)}
-              title={getLayoutText(l)}
-            >
-              <i className={`fa ${getLayoutIcon(l)}`} />
-            </div>
-          }
-        )}
-      </div>
+      { !pageOnly &&
+        <div className="layouts padding-top-bottom-10">
+          { LAYOUTS.map((l, i) => {
+              const hightlight = l === layout? "highlight-c" : ""
+              return <div
+                key={i}
+                className={`no-select-click layout-icon ${hightlight}`}
+                onClick={this.onChangeLayout(l)}
+                title={getLayoutText(l)}
+              >
+                <i className={`fa ${getLayoutIcon(l)}`} />
+              </div>
+            }
+          )}
+        </div>
+      }
     </Ribbon>
   }
 }

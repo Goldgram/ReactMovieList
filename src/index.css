@@ -162,6 +162,9 @@ a {
 }
 
 /* list */
+.list-content {
+	min-height: calc(100vh - 97px);
+}
 .layout-list, .layout-posters {
 	padding-top: 10px;
 	padding-bottom: 20px;
@@ -175,6 +178,7 @@ a {
 }
 .layout-list .list-item img {
 	width: 200px;
+	min-height: 113px;
 }
 .list-item-content {
 	padding: 10px 20px;
@@ -253,7 +257,7 @@ a {
 @media only screen and (max-width: 599px) {
 	.item { flex-direction: column; }
 	.item > div { padding-left: 0; }
-	.item-image img { width: auto; }
+	.item-image img { width: 400px }
 }
 @media only screen and (max-width: 479px) {
 	.list-item{ flex-direction: column; }
