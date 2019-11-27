@@ -2,7 +2,7 @@
 
 This is an example project using a Movie api written with **React** and **Typescript**.
 
-Live example: [http://movies.willbrennan.tech/](http://movies.willbrennan.tech/)
+Live example: [movies.willbrennan.tech/](http://movies.willbrennan.tech/)
 
 ### Overview:
 
