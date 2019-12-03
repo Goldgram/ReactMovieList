@@ -50,6 +50,7 @@ a {
 .wide-font {
 	font-family: "helvetica75";
 	font-size: 22px;
+	line-height: 26px;
 }
 
 .content-container {
@@ -102,6 +103,7 @@ a {
 .logo {
   text-align: center;
 	font-size: 32px;
+	line-height: 36px;
 	padding: 10px 0;
 	color: #1FADEA;
 }
@@ -140,6 +142,7 @@ a {
 .ribbon {
 	display: flex;
 	align-items: center;
+	min-height: 40px;
 }
 .ribbon > div {
 	flex-grow: 1;
@@ -149,13 +152,16 @@ a {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+	min-height: 28px;
 }
 .layout-icon {
 	font-size: 22px;
+	line-height: 22px;
 	padding: 0 8px;
 }
 .layout-icon .fa-file-image-o {
 	font-size: 20px;
+	line-height: 22px;
 }
 .layout-icon .fa-th-list {
 	padding-top: 6px;
